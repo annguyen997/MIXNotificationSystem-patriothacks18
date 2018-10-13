@@ -45,8 +45,8 @@ public class Student {
         return this.issue;
     }
 
-    public static int getNumberOfWorkers(){
-        return numberOfWorkers; 
+    public static int getNumberOfStudents(){
+        return numberOfStudents; 
     }
 
     /* Mutator methods */
