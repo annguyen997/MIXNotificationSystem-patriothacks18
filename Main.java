@@ -18,6 +18,7 @@ public class Main extends Frame {
 
     }
 
+    @SuppressWarnings("unchecked")
     private static void button()
     {
      frame = new JFrame();
@@ -145,9 +146,11 @@ public class Main extends Frame {
       
         for(int i = 0; i < numWorkers; i++)
         {
-          String str, name, position;
-          int number;
-        
+          String str, name, number, position;
+          name = "";
+          number = "";
+          position = "";
+          
           str = workerScan.nextLine();
           if(str.length() > 6 && str.substring(0,5).equals("Name:"))
           {
@@ -157,7 +160,7 @@ public class Main extends Frame {
           str = workerScan.nextLine();
           if(str.length() > 7 && str.substring(0,6).equals("Number:"))
           {
-             number = Integer.parseInt(str.substring(7));
+             number = str.substring(7);
           }
         
           str = workerScan.nextLine();
