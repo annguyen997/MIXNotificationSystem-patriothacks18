@@ -127,7 +127,7 @@ public class Main extends Frame {
     }
     
     @SuppressWarnings("unchecked")
-    public static void readFileStaff()
+    private static void readFileStaff()
     {
       File workerFile = new File("staff.txt");
       Scanner workerScan = null;
