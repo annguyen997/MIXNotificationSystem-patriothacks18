@@ -85,7 +85,7 @@ public class Main extends Frame {
              frame.setLayout(new BorderLayout());  
              frame.add(lbl1, BorderLayout.CENTER); 
          
-           String workerName = notification(issue);
+           String workerName = notification(std);
           
           frame = new JFrame();
           frame.setLayout(new FlowLayout());
@@ -127,13 +127,19 @@ public class Main extends Frame {
       
     }
     
-    private static String notification(String issue)
+    private static String notification(Student std)
     {
-     for(int i = 0; i < staff.length; i++) 
-     {
-       //send a message for each worker
-     }
-      return "worker name";//the worker that accepts the job
+     //send notification to the website
+      String wrkr = "";
+      
+      for(int i = 0; i < staff.length; i++)
+      {
+        if (wrkr.equals(staff[i].getName()))
+        {
+          staff[i].addStudentHelped(std);
+        }
+      }
+      return wrkr;//the worker that accepts the job
     }
     
     @SuppressWarnings("unchecked")
