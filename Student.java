@@ -9,7 +9,7 @@ public class Student{
    private static final int MAX_NUMBER_LENGTH = 9; 
 
    /* Constructor of Worker class */
-   public Student(String name, String phoneNumber, String major, String GNumber){
+   public Student(String name, String phoneNumber, String major, String GNumber, String issue){
       if(name == null || name.equals("")) {
          JOptionPane.showMessageDialog(null, "Error! \nName must be provided");
          throw new IllegalArgumentException();
