@@ -63,10 +63,12 @@ public class Main extends Frame {
            Student std = new Student(name, number, major, issue, gnumber);
            System.out.println(name+number+major+issue+gnumber);
            
+           frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+           
            //send message
            /*while()//while they are waiting for the message
            {
-             frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+             
           
              frame = new JFrame();
              frame.setLayout(new FlowLayout());
