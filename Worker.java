@@ -1,45 +1,52 @@
 public class Worker {
     private String name; 
-    private String number; 
+    private String phoneNumber; 
     private String position; 
     private static int numberOfWorkers = 0; 
 
     /* Constructor of Worker class */
-    public Worker(String name, String number, String position){
+    public Worker(String name, int phoneNumber, String position){
+        if(name == null || name.equals("")) {
+            throw new IllegalArgumentException("Name must be provided");
+        }
+        if(phoneNumber < 0) {
+            throw new IllegalArgumentException("Number must be greater than 0.");
+        }
+        
         this.name = name; 
-        this.number = number; 
+        this.phoneNumber = phoneNumber; 
         this.position = position; 
         numberOfWorkers += 1; 
 
     }
 
     /* Accessor methods */
-    String getName(){
+    public String getName(){
         return this.name;
     }
 
-    String getNumber(){
+    public String getNumber(){
         return this.number;
     } 
 
-    String getPosition(){
+    public String getPosition(){
         return this.position;
     }
 
-    int getNumberOfWorkers(){
+    public static int getNumberOfWorkers(){
         return numberOfWorkers; 
     }
 
     /* Mutator methods */
-    void setName(String name){
+    public void setName(String name){
         this.name = name; 
     }
 
-    void setNumber(String number){
+    public void setNumber(String number){
         this.number = number; 
     }
 
-    void setPosition(String position){
+    public void setPosition(String position){
         this.position = position; 
     }
 
