@@ -5,6 +5,7 @@ public class Worker {
     private String phoneNumber; 
     private String position; 
     private static int numberOfWorkers = 0; 
+    private Knowledge studentsHelped; 
     private static List<String> notifications; 
 
     /* Constructor of Worker class */
@@ -71,6 +72,7 @@ public class Worker {
     }
     
     /* To be edited/revised further */
-    public static String removeNotification(){
+    public static String removeNotification(String name){
+        
     }
 } 
