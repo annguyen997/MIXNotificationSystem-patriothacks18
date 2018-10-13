@@ -1,1 +1,3 @@
-Hello world
+Name: Meagan Trenchard
+Major: IT
+G-Number: G1234567
