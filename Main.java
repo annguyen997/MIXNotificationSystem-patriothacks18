@@ -12,6 +12,7 @@ public class Main extends Frame {
   
   private static JFrame frame;
   private static Knowledge students;
+  private static Worker[] staff;
   
     public static void main(String[] args){
 
@@ -61,6 +62,7 @@ public class Main extends Frame {
            gnumber =  txtGNum.getText();
            
            Student std = new Student(name, number, major, issue, gnumber);
+           students.add(std);
            System.out.println(name+number+major+issue+gnumber);
            
            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
