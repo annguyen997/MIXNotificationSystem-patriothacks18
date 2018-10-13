@@ -12,16 +12,14 @@ public class Main extends Frame {
   
   private static JFrame frame;
   private static Knowledge students;
-  private static Student[] studenta;
-  private static int stdNum;
   private static Worker[] staff;
   
     public static void main(String[] args){
 
       students = new Knowledge<Student>();
-      studenta = new Student[100];
-      stdNum = 0;
       button();
+      button();//REMOVE
+      button();//REMOVE
       
     }
 
@@ -71,17 +69,11 @@ public class Main extends Frame {
            
            Student std = new Student(name, number, major, issue, gnumber);
            students.add(std);
-           studenta[stdNum] = std;
-           stdNum++;
            save();
            
            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-           
-           //send message
-           /*while()//while they are waiting for the message
-           {
-             
-          
+
+           //wait screen
              frame = new JFrame();
              frame.setLayout(new FlowLayout());
              frame.setTitle("Results"); 
@@ -92,7 +84,8 @@ public class Main extends Frame {
     
              frame.setLayout(new BorderLayout());  
              frame.add(lbl1, BorderLayout.CENTER); 
-         }*/
+         
+           String workerName = notification(std);
           
           frame = new JFrame();
           frame.setLayout(new FlowLayout());
@@ -100,7 +93,7 @@ public class Main extends Frame {
           frame.setSize(500, 200);           
           frame.setVisible(true);
      
-          Label lbl2 = new Label("___will be with you shortly");
+          Label lbl2 = new Label(workerName + " will be with you shortly");
     
           frame.setLayout(new BorderLayout());  
           frame.add(lbl2, BorderLayout.CENTER); 
@@ -132,6 +125,21 @@ public class Main extends Frame {
       frame.add(lbl, BorderLayout.NORTH);
       frame.add(pnlbtn, BorderLayout.SOUTH);
       
+    }
+    
+    private static String notification(Student std)
+    {
+     //send notification to the website
+      String wrkr = "";
+      
+      for(int i = 0; i < staff.length; i++)
+      {
+        if (wrkr.equals(staff[i].getName()))
+        {
+          staff[i].addStudentHelped(std);
+        }
+      }
+      return wrkr;//the worker that accepts the job
     }
     
     @SuppressWarnings("unchecked")
@@ -192,14 +200,9 @@ public class Main extends Frame {
    Writer studentFile = null;
    try 
    {
-     /*String str ="";
-     for(int i = 0; i < stdNum; i++)
-     {
-       str += studenta[i].toString();
-     }*/
     studentFile = new BufferedWriter(new OutputStreamWriter(
           new FileOutputStream("student.txt"), "utf-8"));
-          studentFile.write(students.toString()/*str*/);
+          studentFile.write(students.toString());
    } 
    catch (IOException ex) 
    {
@@ -217,5 +220,6 @@ public class Main extends Frame {
      }
    }
  }
+     
     
 }

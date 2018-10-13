@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
 public class Implementation {
    public static void main(String[] args) { 
-      final int MAX_STUDENTS = 30000;
+      final int MAX_STUDENTS = 100;
     
       int studentOption = getStudentOptions();
       while(studentOption != 2) {
