@@ -1,3 +1,7 @@
 Name: Meagan Trenchard
 Major: IT
 G-Number: G1234567
+
+Name: Bridget Trenchard
+Major: Computer Science
+G-Number: G2345765
