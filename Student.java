@@ -61,7 +61,7 @@ public class Student {
 
     public void setPhoneNumber(String phoneNumber){
         if(phoneNumber.equals("") || phoneNumber.length() < MAX_NUMBER_LENGTH) {
-            throw new IllegalArgumentException("Number must be greater than 0.");
+            throw new IllegalArgumentException("Error! \nPlease enter a valid phone number.");
         }
         else {
             this.phoneNumber = phoneNumber; 
