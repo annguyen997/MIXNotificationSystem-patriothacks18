@@ -25,7 +25,9 @@ public class Implementation {
       }
    }
     
-   public static void addStudent() {
+   public static void addStudent(String name, String number, String major, String Gnumber) {
+      Student addStudent = new Student(name, number, major, Gnumber); 
+      students.add(addStudent); //Using information from Main class - this may not be operational. 
         
    }
     
