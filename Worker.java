@@ -1,8 +1,11 @@
+import java.util.ArrayList; 
+
 public class Worker {
     private String name; 
     private String phoneNumber; 
     private String position; 
     private static int numberOfWorkers = 0; 
+    private static List<String> notifications; 
 
     /* Constructor of Worker class */
     public Worker(String name, String phoneNumber, String position){
@@ -17,6 +20,10 @@ public class Worker {
         this.phoneNumber = phoneNumber; 
         this.position = position; 
         numberOfWorkers += 1; 
+        
+        if (notifications == null){
+            notifications = new ArrayList<String>(); 
+        }
 
     }
 
@@ -36,6 +43,15 @@ public class Worker {
     public static int getNumberOfWorkers(){
         return numberOfWorkers; 
     }
+    
+    public static String getNotifications(){
+        
+        System.out.println("There are currently " + notifications.size() + " notifications.\n"); 
+        
+        for (String notification : notifications){
+            System.out.println(notification + "\n");
+        }
+    }
 
     /* Mutator methods */
     public void setName(String name){
@@ -52,5 +68,9 @@ public class Worker {
     public static String toString() {
         return " The name of the worker is " +  "  " +  name + "  " + " The phone number of is " + "  " + phoneNumber + " " + 
     " The position is " + "  " +  position + "\n\n" ;
+    }
+    
+    /* To be edited/revised further */
+    public static String removeNotification(){
     }
 } 
