@@ -12,12 +12,17 @@ public class Main extends Frame {
   
   private static JFrame frame;
   private static Knowledge students;
+  private static Student[] studenta;
+  private static int stdNum;
   private static Worker[] staff;
-  private static Student[] students = new Student(30000);
   
     public static void main(String[] args){
 
       students = new Knowledge<Student>();
+      studenta = new Student[100];
+      stdNum = 0;
+      button();
+      
     }
 
     @SuppressWarnings("unchecked")
@@ -66,7 +71,9 @@ public class Main extends Frame {
            
            Student std = new Student(name, number, major, issue, gnumber);
            students.add(std);
-           System.out.println(name+number+major+issue+gnumber);
+           studenta[stdNum] = std;
+           stdNum++;
+           save();
            
            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
            
@@ -180,5 +187,35 @@ public class Main extends Frame {
      }
  } 
 
+     public static void save()
+ { 
+   Writer studentFile = null;
+   try 
+   {
+     /*String str ="";
+     for(int i = 0; i < stdNum; i++)
+     {
+       str += studenta[i].toString();
+     }*/
+    studentFile = new BufferedWriter(new OutputStreamWriter(
+          new FileOutputStream("student.txt"), "utf-8"));
+          studentFile.write(students.toString()/*str*/);
+   } 
+   catch (IOException ex) 
+   {
+    // Report
+   } 
+   finally 
+   {
+     try 
+     {
+       studentFile.close();
+     } 
+     catch (Exception ex) 
+     {
+     /*ignore*/
+     }
+   }
+ }
     
 }
