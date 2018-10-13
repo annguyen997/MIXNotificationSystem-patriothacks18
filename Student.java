@@ -12,24 +12,31 @@ public class Student{
    public Student(String name, String phoneNumber, String major, String GNumber){
       if(name == null || name.equals("")) {
          JOptionPane.showMessageDialog(null, "Error! \nName must be provided");
+         throw new IllegalArgumentException();
       }
       if(phoneNumber.equals("") || phoneNumber.length() < MAX_NUMBER_LENGTH) {
          JOptionPane.showMessageDialog(null,"Number must be greater than 0.");
+         throw new IllegalArgumentException();
       }
       if(major.equals("")) {
          JOptionPane.showMessageDialog(null, "Error! \nMajor must be provided!");
+         throw new IllegalArgumentException();
       }
       if(issue.equals("")) {
          JOptionPane.showMessageDialog(null, "Error! \nPlease enter a valid issue");
+         throw new IllegalArgumentException();
       }
       if(GNumber.equals("")) {
          JOptionPane.showMessageDialog(null, "Error! \nGNumber must be provided.");
+         throw new IllegalArgumentException();
       }
       if(GNumber.indexOf('G') != 0) {
          JOptionPane.showMessageDialog(null, "Error! \nFirst character must start with G");
+         throw new IllegalArgumentException();
       }
       if(GNumber.length() != 9) {
          JOptionPane.showMessageDialog(null, "Error! \nGNumber must consist of 9 characters.");
+         throw new IllegalArgumentException();
       } 
       this.name = name; 
       this.phoneNumber = phoneNumber; 
@@ -68,6 +75,7 @@ public class Student{
    public void setName(String name){
       if(name == null || name.equals("")) {
          JOptionPane.showMessageDialog(null, "Error! \nName must be provided");
+         throw new IllegalArgumentException();
       }
       else {
          this.name = name; 
@@ -77,6 +85,7 @@ public class Student{
    public void setPhoneNumber(String phoneNumber){
       if(phoneNumber.equals("") || phoneNumber.length() < MAX_NUMBER_LENGTH) {
          JOptionPane.showMessageDialog(null,"Number must be greater than 0.");
+         throw new IllegalArgumentException();
       }
       else {
          this.phoneNumber = phoneNumber; 
@@ -86,6 +95,7 @@ public class Student{
    public void setMajor(String major){
       if(major.equals("")) {
          JOptionPane.showMessageDialog(null, "Error! \nMajor must be provided!");
+         throw new IllegalArgumentException();
       }
       else {
          this.major = major; 
@@ -95,6 +105,7 @@ public class Student{
    public void setIssue(String issue) {
       if(issue.equals("")) {
          JOptionPane.showMessageDialog(null, "Error! \nPlease enter a valid issue");
+         throw new IllegalArgumentException();
       }
       else {
          this.issue = issue;
@@ -104,12 +115,15 @@ public class Student{
    public void setGNumber(String GNumber) {
       if(GNumber.equals("")) {
          JOptionPane.showMessageDialog(null, "Error! \nGNumber must be provided.");
+         throw new IllegalArgumentException();
       }
       if(GNumber.indexOf('G') != 0) {
          JOptionPane.showMessageDialog(null, "Error! \nFirst character must start with G");
+         throw new IllegalArgumentException();
       }
       if(GNumber.length() != 9) {
          JOptionPane.showMessageDialog(null, "Error! \nGNumber must consist of 9 characters.");
+         throw new IllegalArgumentException();
       }
       else {
          this.GNumber = GNumber;
