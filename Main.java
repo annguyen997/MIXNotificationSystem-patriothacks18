@@ -12,11 +12,13 @@ public class Main extends Frame {
   
   private static JFrame frame;
   private static Knowledge students;
+  private static Knowledge notification;
   private static Worker[] staff;
   
     public static void main(String[] args){
 
       students = new Knowledge<Student>();
+      notification = new Knowledge<Student>();
       readFileStaff();
       button();
     }
@@ -31,7 +33,7 @@ public class Main extends Frame {
      frame.setSize(900, 250);           
      frame.setVisible(true);
      
-     Label lbl= new Label("Get Help!"); 
+     Label lbl= new Label("Please enter the following information."); 
      
      frame.setLayout(new BorderLayout());  
       
@@ -126,8 +128,11 @@ public class Main extends Frame {
       
     }
     
+    @SuppressWarnings("unchecked")
     private static String notification(Student std)
     {
+      notification.add(std);
+      updateNot();
      //send notification to the website
       String wrkr = "Meagan Trenchard";
       
@@ -199,7 +204,7 @@ public class Main extends Frame {
      }
  } 
 
-     public static void save()
+ public static void save()
  { 
    Writer studentFile = null;
    try 
@@ -217,6 +222,32 @@ public class Main extends Frame {
      try 
      {
        studentFile.close();
+     } 
+     catch (Exception ex) 
+     {
+     /*ignore*/
+     }
+   }
+ }
+ 
+  public static void updateNot()
+ { 
+   Writer notificationFile = null;
+   try 
+   {
+    notificationFile = new BufferedWriter(new OutputStreamWriter(
+          new FileOutputStream("notification.txt"), "utf-8"));
+          notificationFile.write(notification.toString());
+   } 
+   catch (IOException ex) 
+   {
+    // Report
+   } 
+   finally 
+   {
+     try 
+     {
+       notificationFile.close();
      } 
      catch (Exception ex) 
      {
