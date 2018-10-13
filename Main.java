@@ -12,15 +12,11 @@ public class Main extends Frame {
   
   private static JFrame frame;
   private static Knowledge students;
-  private static Student[] studenta;
-  private static int stdNum;
   private static Worker[] staff;
   
     public static void main(String[] args){
 
       students = new Knowledge<Student>();
-      studenta = new Student[100];
-      stdNum = 0;
       button();
       
     }
@@ -71,8 +67,6 @@ public class Main extends Frame {
            
            Student std = new Student(name, number, major, issue, gnumber);
            students.add(std);
-           studenta[stdNum] = std;
-           stdNum++;
            save();
            
            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
@@ -192,14 +186,9 @@ public class Main extends Frame {
    Writer studentFile = null;
    try 
    {
-     /*String str ="";
-     for(int i = 0; i < stdNum; i++)
-     {
-       str += studenta[i].toString();
-     }*/
     studentFile = new BufferedWriter(new OutputStreamWriter(
           new FileOutputStream("student.txt"), "utf-8"));
-          studentFile.write(students.toString()/*str*/);
+          studentFile.write(students.toString());
    } 
    catch (IOException ex) 
    {
