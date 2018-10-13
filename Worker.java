@@ -10,12 +10,12 @@ public class Worker {
 
     /* Constructor of Worker class */
     public Worker(String name, String phoneNumber, String position){
-        /*if(name == null || name.equals("")) {
+        if(name == null || name.equals("")) {
             throw new IllegalArgumentException("Name must be provided");
         }
         if(Integer.parseInt(phoneNumber) < 0) {
             throw new IllegalArgumentException("Number must be greater than 0.");
-        }*/
+        }
         
         this.name = name; 
         this.phoneNumber = phoneNumber; 
