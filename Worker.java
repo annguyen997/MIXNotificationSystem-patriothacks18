@@ -6,7 +6,7 @@ public class Worker {
     private String position; 
     private static int numberOfWorkers = 0; 
     private Knowledge studentsHelped; 
-    private static List<String> notifications; 
+    private static Knowledge<String> notifications; 
 
     /* Constructor of Worker class */
     public Worker(String name, String phoneNumber, String position){
@@ -23,9 +23,10 @@ public class Worker {
         numberOfWorkers += 1; 
         
         if (notifications == null){
-            notifications = new ArrayList<String>(); 
+            notifications = new Knowledge<String>(); 
         }
-
+        studentsHelped = new Knowledge<Student>();
+        
     }
 
     /* Accessor methods */
@@ -45,7 +46,7 @@ public class Worker {
         return numberOfWorkers; 
     }
     
-    public static String getNotifications(){
+    public static void getNotifications(){
         
         System.out.println("There are currently " + notifications.size() + " notifications.\n"); 
         
@@ -67,17 +68,18 @@ public class Worker {
         this.position = position; 
     }
     
+     @SuppressWarnings("unchecked")
     public void addStudentHelped(Student student) {
-        this.studentHelped.add(student); 
+        this.studentsHelped.add(student); 
     }
     
-    public static String toString() {
+    public String toString() {
         return " The name of the worker is " +  "  " +  name + "  " + " The phone number of is " + "  " + phoneNumber + " " + 
     " The position is " + "  " +  position + "\n\n" ;
     }
     
     /* To be edited/revised further */
-    public static String removeNotification(String name){
+    public static void removeNotification(String name){
         
     }
-} 
+}
