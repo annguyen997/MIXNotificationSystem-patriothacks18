@@ -13,6 +13,7 @@ public class Main extends Frame {
   private static JFrame frame;
   private static Knowledge students;
   private static Worker[] staff;
+  private static Student[] students = new Student(30000);
   
     public static void main(String[] args){
 

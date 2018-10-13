@@ -49,5 +49,8 @@ public class Worker {
     public void setPosition(String position){
         this.position = position; 
     }
-
+    public static String toString() {
+        return " The name of the worker is " +  "  " +  name + "  " + " The phone number of is " + "  " + phoneNumber + " " + 
+    " The position is " + "  " +  position + "\n\n" ;
+    }
 } 
