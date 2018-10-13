@@ -79,7 +79,21 @@ public class Worker {
     }
     
     /* To be edited/revised further */
-    public static void removeNotification(String name){
+    public static void removeNotification(String name, int[] workers){
+    
+        /*
+        remove a notification 
+      for (int x = 0; x < workers.length() ; x++) {
+      if ( workers[x].getName()== name) { 
+         for ( int y = x; y < workers; y++) {
+             workers[y] = workers[y+1];
+             }
+  
+   
+         
+         }
+         */ 
         
+ 
     }
 }
