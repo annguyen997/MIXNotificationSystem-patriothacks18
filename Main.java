@@ -92,7 +92,7 @@ public class Main extends Frame {
           frame.setSize(500, 200);           
           frame.setVisible(true);
      
-          Label lbl2 = new Label(workerName + " is comeing and will be with you shortly.");
+          Label lbl2 = new Label(workerName + " is coming and will be with you shortly.");
     
           frame.setLayout(new BorderLayout());  
           frame.add(lbl2, BorderLayout.CENTER); 
