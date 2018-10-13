@@ -5,10 +5,13 @@ import javax.swing.*;
 public class Button extends Frame 
 {
   private static JFrame frame;
+  private static Knowledge students;
 
   public static void main(String[] args) 
     {
+    students = new Knowledge<Student>();//goes in constructor
         button();
+        System.out.println(students.toString());
     }
   private static void button()
     {
@@ -52,10 +55,37 @@ public class Button extends Frame
            major =  txtMajor.getText();
            issue =  txtIssue.getText();
            gnumber =  txtGNum.getText();
+           
+           Student std = new Student(name, number, major, issue, gnumber);
            System.out.println(name+number+major+issue+gnumber);
-           //create a student
+           
            //send message
-          frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+           /*while()//while they are waiting for the message
+           {
+             frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+          
+             frame = new JFrame();
+             frame.setLayout(new FlowLayout());
+             frame.setTitle("Results"); 
+             frame.setSize(500, 200);           
+             frame.setVisible(true);
+     
+             Label lbl1 = new Label("Please Wait.");
+    
+             frame.setLayout(new BorderLayout());  
+             frame.add(lbl1, BorderLayout.CENTER); 
+         }*/
+          
+          frame = new JFrame();
+          frame.setLayout(new FlowLayout());
+          frame.setTitle("Results"); 
+          frame.setSize(500, 200);           
+          frame.setVisible(true);
+     
+          Label lbl2 = new Label("___will be with you shortly");
+    
+          frame.setLayout(new BorderLayout());  
+          frame.add(lbl2, BorderLayout.CENTER); 
          }
         }
         );
@@ -83,6 +113,7 @@ public class Button extends Frame
       frame.add(pnltxt, BorderLayout.CENTER);
       frame.add(lbl, BorderLayout.NORTH);
       frame.add(pnlbtn, BorderLayout.SOUTH);
+      
     }
     
 }
