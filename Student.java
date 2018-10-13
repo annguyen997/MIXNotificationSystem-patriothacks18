@@ -1,30 +1,40 @@
 public class Student {
     private String name; 
     private String phoneNumber; 
-    private String gradeLevel; 
+    private String major; 
     private String issue;
+    private String GNumber;
     private static int numberOfStudents = 0;
     private static final int MAX_NUMBER_LENGTH = 9; 
 
     /* Constructor of Worker class */
-    public Student(String name, String phoneNumber, String gradeLevel){
+    public Student(String name, String phoneNumber, String major, String GNumber){
         if(name == null || name.equals("")) {
             throw new IllegalArgumentException("Error! \nName must be provided");
         }
         if(phoneNumber.equals("") || phoneNumber.length() < MAX_NUMBER_LENGTH) {
-            throw new IllegalArgumentException("Error! \nPlease enter a valid phone number must be greater than 0.");
+            throw new IllegalArgumentException("Number must be greater than 0.");
         }
-        if(!gradeLevel.equalsIgnoreCase("freshman") || !gradeLevel.equalsIgnoreCase("sophomore") ||
-        !gradeLevel.equalsIgnoreCase("junior") || !gradeLevel.equalsIgnoreCase("senior")) {
-            throw new IllegalArgumentException("Error! \nPlease enter a valid grade level.");
+        if(major.equals("")) {
+            throw new IllegalArgumentException("Error! \nMajor must be provided!");
         }
         if(issue.equals("")) {
             throw new IllegalArgumentException("Error! \nPlease enter a valid issue");
         }
+        if(GNumber.equals("")) {
+            throw new IllegalArgumentException("Error! \nGNumber must be provided.");
+        }
+        if(GNumber.indexOf('G') != 0) {
+            throw new IllegalArgumentException("Error! \nFirst character must start with G");
+        }
+        if(GNumber.length() != 9) {
+            throw new IllegalArgumentException("Error! \nGNumber must consist of 9 characters.");
+        } 
         this.name = name; 
         this.phoneNumber = phoneNumber; 
-        this.gradeLevel = gradeLevel;
-        this.issue = issue; 
+        this.major = major;
+        this.issue = issue;
+        this.GNumber = GNumber;
         numberOfStudents += 1; 
     }
 
@@ -34,15 +44,19 @@ public class Student {
     }
 
     public String getPhoneNumber(){
-        return this.number;
+        return this.phoneNumber;
     } 
 
-    public String getGradeLevel(){
-        return this.gradeLevel;
+    public String getMajor(){
+        return this.major;
     }
 
     public String getIssue() {
         return this.issue;
+    }
+    
+    public String getGNumber() {
+        return this.GNumber;
     }
 
     public static int getNumberOfStudents(){
@@ -52,7 +66,7 @@ public class Student {
     /* Mutator methods */
     public void setName(String name){
         if(name == null || name.equals("")) {
-            throw new IllegalArgumentException("Error! \nName must be provided")
+            throw new IllegalArgumentException("Error! \nName must be provided");
         }
         else {
             this.name = name; 
@@ -61,20 +75,19 @@ public class Student {
 
     public void setPhoneNumber(String phoneNumber){
         if(phoneNumber.equals("") || phoneNumber.length() < MAX_NUMBER_LENGTH) {
-            throw new IllegalArgumentException("Error! \nPlease enter a valid phone number.");
+            throw new IllegalArgumentException("Number must be greater than 0.");
         }
         else {
             this.phoneNumber = phoneNumber; 
         }
     }
 
-    public void setGradeLevel(String gradeLevel){
-        if(!gradeLevel.equalsIgnoreCase("freshman") || !gradeLevel.equalsIgnoreCase("sophomore") ||
-        !gradeLevel.equalsIgnoreCase("junior") || !gradeLevel.equalsIgnoreCase("senior")) {
-            throw new IllegalArgumentException("Error! \nPlease enter a valid grade level.");
+    public void setMajor(String major){
+        if(major.equals("")) {
+            throw new IllegalArgumentException("Error! \nMajor must be provided.");
         }
         else {
-            this.gradeLevel = gradeLevel; 
+            this.major = major; 
         }
     }
 
@@ -86,11 +99,26 @@ public class Student {
             this.issue = issue;
         }
     }
-
-    public String toString() {
-        return "The name of the student is: " + this.getName() + "\nThe phone number of the 
-        student is: " + this.getPhoneNumber() + "\nThe grade level of the student is: " + 
-        this.getGradeLevel + "\nThe issue that must be resolved: " + this.getIssue();
+    
+    public void setGNumber(String GNumber) {
+        if(GNumber.equals("")) {
+            throw new IllegalArgumentException("Error! \nGNumber must be provided.");
+        }
+        if(GNumber.indexOf('G') != 0) {
+            throw new IllegalArgumentException("Error! \nFirst character must start with G");
+        }
+        if(GNumber.length() != 9) {
+            throw new IllegalArgumentException("Error! \nGNumber must consist of 9 characters.");
+        }
+        else {
+            this.GNumber = GNumber;
+        }
     }
 
+    public String toString() {
+        return "The name of the student is: " + this.getName() + "\nThe phone number of the" + 
+        "student is: " + this.getPhoneNumber() + "\nThe grade level of the student is: " + 
+        this.getMajor() + "\nThe G Number for the student is: " + this.getGNumber() + 
+        "\nThe issue that must be resolved: " + this.getIssue();
+    }
 } 
