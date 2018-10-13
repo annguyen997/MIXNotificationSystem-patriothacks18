@@ -18,6 +18,8 @@ public class Main extends Frame {
 
       students = new Knowledge<Student>();
       button();
+      button();//REMOVE
+      button();//REMOVE
       
     }
 
@@ -70,12 +72,8 @@ public class Main extends Frame {
            save();
            
            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-           
-           //send message
-           /*while()//while they are waiting for the message
-           {
-             
-          
+
+           //wait screen
              frame = new JFrame();
              frame.setLayout(new FlowLayout());
              frame.setTitle("Results"); 
@@ -86,7 +84,8 @@ public class Main extends Frame {
     
              frame.setLayout(new BorderLayout());  
              frame.add(lbl1, BorderLayout.CENTER); 
-         }*/
+         
+           String workerName = notification(issue);
           
           frame = new JFrame();
           frame.setLayout(new FlowLayout());
@@ -94,7 +93,7 @@ public class Main extends Frame {
           frame.setSize(500, 200);           
           frame.setVisible(true);
      
-          Label lbl2 = new Label("___will be with you shortly");
+          Label lbl2 = new Label(workerName + " will be with you shortly");
     
           frame.setLayout(new BorderLayout());  
           frame.add(lbl2, BorderLayout.CENTER); 
@@ -126,6 +125,15 @@ public class Main extends Frame {
       frame.add(lbl, BorderLayout.NORTH);
       frame.add(pnlbtn, BorderLayout.SOUTH);
       
+    }
+    
+    private static String notification(String issue)
+    {
+     for(int i = 0; i < staff.length; i++) 
+     {
+       //send a message for each worker
+     }
+      return "worker name";//the worker that accepts the job
     }
     
     @SuppressWarnings("unchecked")
@@ -206,5 +214,6 @@ public class Main extends Frame {
      }
    }
  }
+     
     
 }
