@@ -17,10 +17,8 @@ public class Main extends Frame {
     public static void main(String[] args){
 
       students = new Knowledge<Student>();
+      readFileStaff();
       button();
-      button();//REMOVE
-      button();//REMOVE
-      
     }
 
     @SuppressWarnings("unchecked")
@@ -55,7 +53,7 @@ public class Main extends Frame {
       lblGNum = new Label("G-number (G########): "); 
   
       
-      JButton btn = new JButton("Press");
+      JButton btn = new JButton("Enter");
         btn.addActionListener(new ActionListener() 
         {
          public void actionPerformed(ActionEvent e) 
@@ -86,6 +84,7 @@ public class Main extends Frame {
              frame.add(lbl1, BorderLayout.CENTER); 
          
            String workerName = notification(std);
+           frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
           
           frame = new JFrame();
           frame.setLayout(new FlowLayout());
@@ -93,7 +92,7 @@ public class Main extends Frame {
           frame.setSize(500, 200);           
           frame.setVisible(true);
      
-          Label lbl2 = new Label(workerName + " will be with you shortly");
+          Label lbl2 = new Label(workerName + " is comeing and will be with you shortly.");
     
           frame.setLayout(new BorderLayout());  
           frame.add(lbl2, BorderLayout.CENTER); 
@@ -130,7 +129,7 @@ public class Main extends Frame {
     private static String notification(Student std)
     {
      //send notification to the website
-      String wrkr = "";
+      String wrkr = "Meagan Trenchard";
       
       for(int i = 0; i < staff.length; i++)
       {
@@ -164,22 +163,25 @@ public class Main extends Frame {
         for(int i = 0; i < numWorkers; i++)
         {
           String str, name, number, position;
+          str = "";
           name = "";
           number = "";
           position = "";
           
+        if(workerScan.hasNextLine())
           str = workerScan.nextLine();
           if(str.length() > 6 && str.substring(0,5).equals("Name:"))
           {
              name = str.substring(6);
           }
         
+        if(workerScan.hasNextLine())
           str = workerScan.nextLine();
           if(str.length() > 7 && str.substring(0,6).equals("Number:"))
           {
              number = str.substring(7);
           }
-        
+        if(workerScan.hasNextLine())
           str = workerScan.nextLine();
           if(str.length() > 10 && str.substring(0,9).equals("Position:"))
           {
@@ -189,7 +191,9 @@ public class Main extends Frame {
           Worker worker = new Worker(name, number, position);
           staff[i] = worker;
      
-          workerScan.nextLine();
+        if(workerScan.hasNextLine())
+          str = workerScan.nextLine();
+        if(workerScan.hasNextLine())
           str = workerScan.nextLine();
         }
      }
