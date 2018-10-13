@@ -12,7 +12,7 @@ public class Student {
             throw new IllegalArgumentException("Error! \nName must be provided");
         }
         if(phoneNumber.equals("") || phoneNumber.length() < MAX_NUMBER_LENGTH) {
-            throw new IllegalArgumentException("Number must be greater than 0.");
+            throw new IllegalArgumentException("Error! \nPlease enter a valid phone number must be greater than 0.");
         }
         if(!gradeLevel.equalsIgnoreCase("freshman") || !gradeLevel.equalsIgnoreCase("sophomore") ||
         !gradeLevel.equalsIgnoreCase("junior") || !gradeLevel.equalsIgnoreCase("senior")) {
