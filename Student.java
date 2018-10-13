@@ -9,7 +9,7 @@ public class Student{
    private static final int MAX_NUMBER_LENGTH = 9; 
 
    /* Constructor of Worker class */
-   public Student(String name, String phoneNumber, String major, String GNumber, String issue){
+   public Student(String name, String phoneNumber, String major, String issue, String GNumber){
       if(name == null || name.equals("")) {
          JOptionPane.showMessageDialog(null, "Error! \nName must be provided");
          throw new IllegalArgumentException();
@@ -131,9 +131,8 @@ public class Student{
    }
 
    public String toString() {
-      return "The name of the student is: " + this.getName() + "\nThe phone number of the" + 
-         "student is: " + this.getPhoneNumber() + "\nThe grade level of the student is: " + 
-         this.getMajor() + "\nThe G Number for the student is: " + this.getGNumber() + 
-         "\nThe issue that must be resolved: " + this.getIssue();
+      return "Name: " + this.getName() + "\nNumber: " + this.getPhoneNumber() + "\nMajor: " + 
+         this.getMajor() + "\nG Number: " + this.getGNumber() + 
+         "\nIssue: " + this.getIssue() + "\n****************************************************\n";
    }
 }
