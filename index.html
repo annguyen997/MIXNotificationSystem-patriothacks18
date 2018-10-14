@@ -2,8 +2,14 @@
 <html>
 	<head>
 		<meta http-equiv="refresh" content="60">
-		<!-- <link rel="stylesheet" type="text/js" href="index.js"> -->
+
+		<link rel="stylesheet" type="text/js" href="index.js"> 
 		<title>The Mix</title>
+			<script 
+			src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js">
+				
+			</script>
+			
 				<style>
 			*{
 				background-color: rgb(48,126,193);
@@ -75,7 +81,8 @@
 
 					</script>
 
-				<p id = "demo"></p>
+				<p id = "object"></p>
+				<p id = "list"></p>
 			<button onclick="addTextbox()" class="button">ACCEPT</button>
 			<button class="button">DECLINE</button>
 			
@@ -83,4 +90,5 @@
 			<object width="300" height="300" type="text/plain" data="notification.txt" border="0" ></object>
 		</div>
 	</body>
+
 </html>
