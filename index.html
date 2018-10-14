@@ -55,21 +55,26 @@
 		<img src="https://static1.squarespace.com/static/59932ec1914e6bf78f9b4306/t/5af345a9f950b7b1f0084872/1525892529387/MIXBanner.jpg?format=2500w"><br>
 		<div class="container">
 			<p>Incoming Student Requests</p>
-			<script type="text/javascript">
+					<script type="text/javascript">
 
-					function addTextbox(){
-						var name = prompt("Please enter your name: ", "");
-						WriteToFile(name);
-					}
+						function addTextbox(){
+							var name = prompt("Please enter your name: ", "");
+							WriteToFile(name);
+						}
 
-					function WriteToFile(name) {
-						var fso = new ActiveXObject("Scripting.FileSystemObject");
-						var fh = fso.OpenTextFile("accept.txt");
-						fh.WriteLine(name);
-						fh.Close(); 
-					}
+						function WriteToFile(name) {
+							var fs = require('fs');
 
-				</script>
+							fs.writeFile('accept.txt', name, function(err){
+								if(err){
+									throw err;
+								}
+								console.log('Saved!');
+							});
+						}
+
+					</script>
+
 				<p id = "demo"></p>
 			<button onclick="addTextbox()" class="button">ACCEPT</button>
 			<button class="button">DECLINE</button>
