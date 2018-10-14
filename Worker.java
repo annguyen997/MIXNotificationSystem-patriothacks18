@@ -74,12 +74,26 @@ public class Worker {
     }
     
     public String toString() {
-        return " The name of the worker is " +  "  " +  name + "  " + " The phone number of is " + "  " + phoneNumber + " " + 
-    " The position is " + "  " +  position + "\n\n" ;
+        return "Name: " +  "  " +  name + "  " + "Number: " + "  " + phoneNumber + " " + 
+    "Position: " + "  " +  position + "\n\n" ;
     }
     
     /* To be edited/revised further */
-    public static void removeNotification(String name){
+    public static void removeNotification(String name, int[] workers){
+    
+        /*
+        remove a notification 
+      for (int x = 0; x < workers.length() ; x++) {
+      if ( workers[x].getName()== name) { 
+         for ( int y = x; y < workers; y++) {
+             workers[y] = workers[y+1];
+             }
+  
+   
+         
+         }
+         */ 
         
+ 
     }
 }

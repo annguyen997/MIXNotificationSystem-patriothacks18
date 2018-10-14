@@ -141,6 +141,7 @@ public class Main extends Frame {
         if (wrkr.equals(staff[i].getName()))
         {
           staff[i].addStudentHelped(std);
+          
         }
       }
       return wrkr;//the worker that accepts the job
@@ -232,12 +233,31 @@ public class Main extends Frame {
  
   public static void updateNot()
  { 
+   File notFile = new File("notification.txt");
+      Scanner notificationScan = null;
+      String file = "";
+       
+      try 
+      {
+        notificationScan = new Scanner(notFile);  
+      }
+      catch (IOException ex) 
+      {
+        // Report
+      } 
+      finally
+      {
+        while(notificationScan.hasNextLine())
+        {
+          file += notificationScan.nextLine() + "\n";
+        }
+      }
    Writer notificationFile = null;
    try 
    {
     notificationFile = new BufferedWriter(new OutputStreamWriter(
           new FileOutputStream("notification.txt"), "utf-8"));
-          notificationFile.write(notification.toString());
+          notificationFile.append(file + notification.toString());
    } 
    catch (IOException ex) 
    {
