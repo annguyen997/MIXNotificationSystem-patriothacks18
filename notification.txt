@@ -1,6 +1,2 @@
-Name: Bridget Trenchard
-Number: 1234567890
-Major: Computer Science
-G Number: G12345678
-Issue: printer
-*************************************************************
+
+

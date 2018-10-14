@@ -54,7 +54,6 @@ public class Main extends Frame {
       lblIssue = new Label("Issue: "); 
       lblGNum = new Label("G-number (G########): "); 
   
-      
       JButton btn = new JButton("Enter");
         btn.addActionListener(new ActionListener() 
         {
@@ -131,19 +130,23 @@ public class Main extends Frame {
     @SuppressWarnings("unchecked")
     private static String notification(Student std)
     {
-      notification.add(std);
-      updateNot();
-     //send notification to the website
-      String wrkr = "Meagan Trenchard";
-      
+
+      String wrkr = "";
+
       for(int i = 0; i < staff.length; i++)
       {
-        if (wrkr.equals(staff[i].getName()))
+        if (staff[i].getAvailability().equals("true"))
         {
           staff[i].addStudentHelped(std);
-          
+          wrkr = staff[i].getName();
+          std.setWorker(staff[i]);
+          notification.add(std);
+          updateNot();
+
+          return wrkr;//the worker that accepts the job
         }
       }
+
       return wrkr;//the worker that accepts the job
     }
     
@@ -165,15 +168,22 @@ public class Main extends Frame {
       {
         int numWorkers = Integer.parseInt(workerScan.nextLine());
         staff = new Worker[numWorkers];
+        
+        String str = "";
+        if(workerScan.hasNextLine())
+          str = workerScan.nextLine();
       
         for(int i = 0; i < numWorkers; i++)
         {
-          String str, name, number, position;
+          String name, number, position, available;
+          //boolean available;
           str = "";
           name = "";
           number = "";
           position = "";
+          available = "";
           
+
         if(workerScan.hasNextLine())
           str = workerScan.nextLine();
           if(str.length() > 6 && str.substring(0,5).equals("Name:"))
@@ -194,11 +204,15 @@ public class Main extends Frame {
              position = str.substring(10);
           }
           
-          Worker worker = new Worker(name, number, position);
-          staff[i] = worker;
-     
         if(workerScan.hasNextLine())
           str = workerScan.nextLine();
+          if(str.length() > 14 && str.substring(0,13).equals("Availability:"))
+          {
+            available = str.substring(14);
+          }
+          Worker worker = new Worker(name, number, position, available);
+          staff[i] = worker;
+     
         if(workerScan.hasNextLine())
           str = workerScan.nextLine();
         }

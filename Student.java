@@ -5,8 +5,10 @@ public class Student{
    private String major; 
    private String issue;
    private String GNumber;
+   private Worker worker = null;
    private static int numberOfStudents = 0;
-   private static final int MAX_NUMBER_LENGTH = 9; 
+   private static final int MAX_NUMBER_LENGTH = 9;
+   
 
    /* Constructor of Worker class */
    public Student(String name, String phoneNumber, String major, String issue, String GNumber){
@@ -65,6 +67,10 @@ public class Student{
    
    public String getGNumber() {
       return this.GNumber;
+   }
+   
+   public Worker getWorker() {
+      return this.worker;
    }
 
    public static int getNumberOfStudents(){
@@ -129,10 +135,15 @@ public class Student{
          this.GNumber = GNumber;
       }
    }
+   
+   public void setWorker(Worker worker) {
+      this.worker = worker;
+      }
+   
 
    public String toString() {
       return "Name: " + this.getName() + "\nNumber: " + this.getPhoneNumber() + "\nMajor: " + 
          this.getMajor() + "\nG Number: " + this.getGNumber() + 
-         "\nIssue: " + this.getIssue() + "\n****************************************************\n";
+         "\nIssue: " + this.getIssue() + "\nWorker Assigned: " + this.getWorker() + "\n****************************************************\n";
    }
 }

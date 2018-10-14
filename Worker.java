@@ -5,21 +5,23 @@ public class Worker {
     private String phoneNumber; 
     private String position; 
     private static int numberOfWorkers = 0; 
-    private Knowledge studentsHelped; 
+    private Knowledge studentsHelped;
+    private /*static*/ String available;
     private static Knowledge<String> notifications; 
 
     /* Constructor of Worker class */
-    public Worker(String name, String phoneNumber, String position){
-        if(name == null || name.equals("")) {
+    public Worker(String name, String phoneNumber, String position, String available){
+        /*if(name == null || name.equals("")) {
             throw new IllegalArgumentException("Name must be provided");
         }
         if(Integer.parseInt(phoneNumber) < 0) {
             throw new IllegalArgumentException("Number must be greater than 0.");
-        }
+        }*/
         
         this.name = name; 
         this.phoneNumber = phoneNumber; 
-        this.position = position; 
+        this.position = position;
+        this.available = available;
         numberOfWorkers += 1; 
         
         if (notifications == null){
@@ -45,10 +47,10 @@ public class Worker {
     public static int getNumberOfWorkers(){
         return numberOfWorkers; 
     }
-    
+    public String getAvailability(){
+        return this.available; 
+    }
     public static void getNotifications(){
-        
-        System.out.println("There are currently " + notifications.size() + " notifications.\n"); 
         
         for (String notification : notifications){
             System.out.println(notification + "\n");
@@ -68,32 +70,21 @@ public class Worker {
         this.position = position; 
     }
     
+    public void setAvailability(String available){
+        this.available = available; 
+    }
+    
      @SuppressWarnings("unchecked")
     public void addStudentHelped(Student student) {
         this.studentsHelped.add(student); 
     }
     
     public String toString() {
-        return "Name: " +  "  " +  name + "  " + "Number: " + "  " + phoneNumber + " " + 
-    "Position: " + "  " +  position + "\n\n" ;
+        return name;
     }
     
     /* To be edited/revised further */
-    public static void removeNotification(String name, int[] workers){
-    
-        /*
-        remove a notification 
-      for (int x = 0; x < workers.length() ; x++) {
-      if ( workers[x].getName()== name) { 
-         for ( int y = x; y < workers; y++) {
-             workers[y] = workers[y+1];
-             }
-  
-   
-         
-         }
-         */ 
+    public static void removeNotification(String name){
         
- 
     }
 }

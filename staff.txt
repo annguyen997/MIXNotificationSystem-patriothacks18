@@ -3,16 +3,30 @@
 Name: Meagan Trenchard
 Number: 1111111111
 Position: aaaaaaaaaa
+Availability: false
 **********************************************************
 Name: Bridget Trenchard
 Number: 2222222222
 Position: bbbbbbbbbb
+Availability: false
 **********************************************************
-Name: John Smith
+Name: Woon Gi Hong
 Number: 3333333333
 Position: cccccccccc
+Availability: false
 **********************************************************
-Name: Jane Doe
+Name: An Nguyen
 Number: 4444444444
 Position: dddddddddd
+Availability: false
+**********************************************************
+Name: John Smith
+Number: 5555555555
+Position: cccccccccc
+Availability: true
+**********************************************************
+Name: Jane Doe
+Number: 6666666666
+Position: dddddddddd
+Availability: false
 **********************************************************
