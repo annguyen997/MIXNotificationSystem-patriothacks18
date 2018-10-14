@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="refresh" content="20">
+		<meta http-equiv="refresh" content="60">
+		<!-- <link rel="stylesheet" type="text/js" href="index.js"> -->
 		<title>The Mix</title>
 				<style>
 			*{
@@ -31,21 +32,57 @@
 				background-color: white;
 				margin: 20px;
 				margin-top: 0px;
-				display: inline;
+				height: 100px;
 			
 			}
 			.button{
 				background-color: green;
 				display: inline;
+				margin-left: 20px;
+				margin-top: 20px;
+			}
+			.container{
+				background-color: white;
+			}
+			.addTextbox{
+				margin: 20px;
+				background-color: white;
 			}
 		</style>
 	</head>
 	<body>
 		
 		<img src="https://static1.squarespace.com/static/59932ec1914e6bf78f9b4306/t/5af345a9f950b7b1f0084872/1525892529387/MIXBanner.jpg?format=2500w"><br>
-		<p>Incoming Student Requests</p>
-		<object width="300" height="300" type="text/plain" data="notification.txt" border="0" ></object>
-		<button class="button">ACCEPT</button>
-		<button class="button">DECLINE</button>
+		<div class="container">
+			<p>Incoming Student Requests</p>
+			<script type="text/javascript">
+
+					/*
+					function addTextbox(){https://www.html5rocks.com/tutorials/file/dndfiles/
+		  				var element = document.createElement("input");
+						element.setAttribute("name", "Test Name");
+						document.body.appendChild(element);
+					} */
+
+					function addTextbox(){
+						var name = prompt("Please enter your name: ", "");
+						WriteToFile(name);
+					}
+
+					function WriteToFile(name) {
+						var fso = new ActiveXObject("Scripting.FileSystemObject");
+						var fh = fso.OpenTextFile("accept.txt");
+						fh.WriteLine(name);
+						fh.Close(); 
+					}
+
+				</script>
+				<p id = "demo"></p>
+			<button onclick="addTextbox()" class="button">ACCEPT</button>
+			<button class="button">DECLINE</button>
+			
+				<p id = "demo"></p>
+			<object width="300" height="300" type="text/plain" data="notification.txt" border="0" ></object>
+		</div>
 	</body>
 </html>
