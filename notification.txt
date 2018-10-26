@@ -1,7 +1,6 @@
 Notifications
 ************************************
 
-
 Name: Bridget Trenchard
 Number: 1234567890
 Major: Computer Science
